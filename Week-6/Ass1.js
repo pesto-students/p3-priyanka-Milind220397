@@ -16,7 +16,7 @@ function maxSubArraySum(a, size)
     return max;
 }
    
-// Driver code
+
 var a = [ -2, -3, 4, -1, -2, 1, 5, -3 ]
 console.log("Maximum contiguous sum is", 
                maxSubArraySum(a, a.length))
