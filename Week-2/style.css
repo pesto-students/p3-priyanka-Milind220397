@@ -1,0 +1,73 @@
+header {
+  text-align: center;
+  background-color: rgb(27, 73, 124);
+}
+html {
+  background-color: rgba(34, 41, 70, 0.877);
+}
+header > p {
+  font-style: italic;
+}
+
+footer {
+  background-color: gray;
+  text-align: center;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+article {
+  background-color: aquamarine;
+  border: 5px solid gray;
+  padding: 5px;
+  margin: 10px;
+}
+
+img {
+  width: 400;
+  height: 200;
+}
+
+a:visited {
+  color: brown;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+form {
+  display: grid;
+  grid-template-columns: 100px 300px;
+  border: 5px solid gray;
+  background-color: rgb(84, 56, 56);
+}
+
+label {
+  width: 100px;
+  padding: 5px;
+  margin: 10px;
+}
+input {
+  padding: 5px;
+  margin: 10px;
+}
+
+.gender {
+  border: 5px solid gray;
+}
+.btn:hover {
+  background-image: none;
+  background-color: #ff00ff;
+}
