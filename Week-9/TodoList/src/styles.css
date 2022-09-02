@@ -1,0 +1,58 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: rgb(83, 17, 189);
+}
+.box {
+  margin-bottom: 10px;
+  background-color: rgb(83, 17, 189);
+}
+
+.root {
+  background-color: rgb(155, 136, 63);
+}
+.mr10 {
+  margin-right: 10px;
+}
+
+.mr11 {
+  margin-right: 10px;
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  margin: 10px 0px;
+  cursor: pointer;
+}
+.mr12 {
+  margin-right: 10px;
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  margin: 10px 0px;
+  cursor: pointer;
+}
+
+.mr13 {
+  margin-right: 10px;
+  background-color: pink;
+  color: pink;
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  margin: 10px 0px;
+  cursor: pointer;
+}
+
+.mr15 {
+  margin-right: 10px;
+  background-color: lightgoldenrodyellow;
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  margin: 10px 0px;
+  cursor: pointer;
+}
+
+body {
+  background-color: rgb(83, 17, 189);
+}
