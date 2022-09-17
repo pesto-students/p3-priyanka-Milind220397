@@ -1,0 +1,129 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+  margin: auto;
+  align-self: center;
+  height: 400px;
+  border-color: #151403;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.txt {
+  min-width: 1000vh;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  border-color: #33944e;
+}
+nav {
+  width: 100%;
+  float: left;
+}
+.menu {
+  margin: 0;
+  padding: 8px;
+  height: 17px;
+  background-color: rgb(236, 218, 218);
+  color: #151403;
+}
+.menu li {
+  display: inline;
+  color: #151403;
+}
+
+.button {
+  font-family: Arial;
+  font-size: 1em;
+  font-style: none;
+  color:#151403;
+  padding: 8px;
+  text-decoration: none;
+}
+
+.box {
+  background-color: #40811e;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: rgb(83, 17, 189);
+}
+.box {
+  margin-bottom: 10px;
+  background-color: rgb(83, 17, 189);
+}
+
+.root {
+  background-color: rgb(155, 136, 63);
+}
+.mr10 {
+  margin-right: 10px;
+}
+
+.mr11 {
+  margin-right: 10px;
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  margin: 10px 0px;
+  cursor: pointer;
+}
+.mr12 {
+  margin-right: 10px;
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  margin: 10px 0px;
+  cursor: pointer;
+}
+
+.mr13 {
+  margin-right: 10px;
+  background-color: pink;
+  color: pink;
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  margin: 10px 0px;
+  cursor: pointer;
+}
+
+.mr15 {
+  margin-right: 10px;
+  background-color: lightgoldenrodyellow;
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  margin: 10px 0px; 
+  cursor: pointer;
+}
+
+body {
+  background-color: rgb(83, 17, 189);
+}
+
+.tablebox{
+  background-color:rgb(236, 218, 218);
+ 
+  font-size: 20px;
+  padding: 10px 60px;
+  border-radius: 5px;
+  margin: 10px 0px;
+  cursor: pointer;
+  margin-left: 25%;
+  margin-right: 25%;
+}
