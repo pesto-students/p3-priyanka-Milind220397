@@ -6,21 +6,42 @@ require("dotenv").config();
 const API_KEY = process.env.API_KEY;
 
 router.get("/current", async (req, res) => {
-
+  var promises = [];
   const result = [];
-  const cities = new Set(req.query.city.split(","));
+  const cities = req.query.city.split(",");
   console.log(cities);
   for (let city of cities) {
-    console.log("City" + city)
-    // let url = `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}`;
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.API_KEY}`
-    try {
-      let results = await axios.get(url);
-      json = results.data;
-      result.push(json);
-    } catch (err) {
-      console.log("data not found")
+    promises.push(await axios.get(url));
+  }
+
+  try {
+   
+    console.log("Inside Try catch");
+    const res1 = await Promise.all(promises);
+    const data = res1.map((res1) => res1.data);
+    console.log(""+data)
+
+
+
+    console.log(""+cities.length);
+    for (let i = 0; i < cities.length; i++) {
+      console.log("Inside Loop")
+      let temp = {
+        City: JSON.stringify(data[i].name),
+        Country: JSON.stringify(data[i].sys.country),
+        Temperature: JSON.stringify(data[i].main.temp),
+        Humidity: JSON.stringify(data[i].main.humidity),
+        Pressure: JSON.stringify(data[i].main.pressure),
+        Windspeed: JSON.stringify(data[i].wind.speed),
+        Weather: JSON.stringify(data[i].weather[0].description)
+      }
+     console.log(temp);
+      res.write("<br/>" + JSON.stringify(temp));
     }
+    res.end();
+  } catch (err) {
+    console.log("Promise failed")
   }
 
   const page = !req.query.page ? 1 : parseInt(req.query.page);
@@ -29,34 +50,41 @@ router.get("/current", async (req, res) => {
   const end = page * limit;
 
   const resultp = result.slice(start, end);
-  res.send(resultp);
+  // res.send(resultp);
   // res.send(result)
 
 });
 
-router.get("/forecast", async (req, res) => {
 
-  const result = [];
+router.get("/forecast", async (req, res) => {
 
   if (!req.query.city || !req.query.days) return [];
   const cities = req.query.city.split(",");
   const { days } = req.query;
-  console.log(cities);
-  console.log(days);
+  let promises = [];
+
+  //Push all the promises in array
   for (let i = 0; i < cities.length; i++) {
-    try {
-      let url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.API_KEY1}&q=${cities[i]}&days=${days}`;
-      let results = await axios.get(url);
-      results = results.data;
-      result.push(results);
-
-    } catch (err) {
-      console.log("data not found");
-    }
-
+    let url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.API_KEY1}&q=${cities[i]}&days=${days}`;
+    promises.push(await axios.get(url));
   }
+  try {
+    console.log("Inside Try catch");
+    const res1 = await Promise.all(promises);
+    const data = res1.map((res1) => res1.data);
 
-  res.send(result);
+    //Send Response In Proper Format  fpr all cities
+    for (let i = 0; i < cities.length; i++) {
+      res.write("<br/>" + JSON.stringify(data[i].location));
+      for (let j = 0; j < days; j++) {
+        res.write("<br/> {Date:" + data[i].forecast.forecastday[j].date + "}");
+        res.write("" + JSON.stringify(data[i].forecast.forecastday[j].day));
+      }
+    }
+    res.end();
+  } catch (err) {
+    console.log(err);
+  }
 });
 module.exports = router;
 
