@@ -1,9 +1,16 @@
 const express = require("express");
-//const Model = require("../models/model");
+const bodyparser = require("body-parser");
 const router = express.Router();
 const axios = require("axios");
+const { application } = require("express");
 require("dotenv").config();
 const API_KEY = process.env.API_KEY;
+const app = express();
+
+//parse application urlencoded
+app.use(bodyparser.urlencoded({extended:false}));
+//parse application json
+app.use(bodyparser.json());
 
 router.get("/current", async (req, res) => {
   var promises = [];
@@ -20,11 +27,9 @@ router.get("/current", async (req, res) => {
     console.log("Inside Try catch");
     const res1 = await Promise.all(promises);
     const data = res1.map((res1) => res1.data);
-    console.log(""+data)
-
-
-
     console.log(""+cities.length);
+
+    //Sending response required in format
     for (let i = 0; i < cities.length; i++) {
       console.log("Inside Loop")
       let temp = {
@@ -37,7 +42,8 @@ router.get("/current", async (req, res) => {
         Weather: JSON.stringify(data[i].weather[0].description)
       }
      console.log(temp);
-      res.write("<br/>" + JSON.stringify(temp));
+     res.write("<br/>" + JSON.stringify(temp));
+
     }
     res.end();
   } catch (err) {
