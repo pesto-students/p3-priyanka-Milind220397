@@ -1,0 +1,98 @@
+.main {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin: auto;
+  align-items: center;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 200px;
+  height: 200px;
+}
+
+.hi {
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: xx-large;
+  font-weight: bold;
+  margin: auto;
+  align-items: center;
+}
+
+.first {
+  background-color: black;
+  width: 100px;
+  height: 100px;
+  transform-origin: top left;
+  transition: transform 0.7s ease-in-out;
+  /* 
+  animation-name: out1;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate; */
+}
+.main:hover > .first {
+  transform-origin: top left;
+  transform: rotate(90deg);
+}
+
+.second {
+  background-color: yellow;
+  width: 100px;
+  height: 100px;
+  transform-origin: top right;
+  transition: transform 0.7s ease-in-out;
+  /* animation-name: out2;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate; */
+}
+.main:hover > .second {
+  transform-origin: top right;
+  transform: rotate(-90deg);
+}
+
+.third {
+  background-color: blue;
+  width: 100px;
+  height: 100px;
+  transform-origin: bottom left;
+  transition: transform 0.7s ease-in-out;
+  /* animation-name: out3;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate; */
+}
+
+.main:hover > .third {
+  transform-origin: bottom left;
+  transform: rotate(-90deg);
+}
+.fourth {
+  background-color: green;
+  width: 100px;
+  height: 100px;
+  transform-origin: bottom right;
+  transition: transform 0.7s ease-in-out;
+  /* animation-name: out4;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate; */
+}
+
+.main:hover > .fourth {
+  transform-origin: bottom right;
+  transform: rotate(90deg);
+}
